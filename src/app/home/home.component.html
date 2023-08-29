@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <!-- <ul class="food-list">
+        <li *ngFor="let food of foods">
+            <a>
+                <img class="img-fluid" src="{{food}}" alt="food images">
+            </a>
+        </li>
+    </ul> -->
+    <app-search></app-search>
+    <app-tags></app-tags>
+    <app-not-found [visible]="!foods || foods.length <= 0" resetLinkText="Reset Search"></app-not-found>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let food of foods">
+          <div class="card h-100">
+            <a class="card-link" routerLink="/food/{{food.id}}">
+            <img src="{{food.imageUrl}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h6 class="card-title mb-0">{{food.name}}</h6>
+              <span class="favourite {{food.favourite ? '' : 'not'}}">♥</span>
+              <star-rating [value]="food.star" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="true" ></star-rating>
+              <div class="food-footer">
+                <div class="origin">
+                    <small *ngFor="let origin of food.origins">{{origin}} </small>
+                </div>
+                <div class="cook-time ms-auto">
+                <small><span>🕑</span> {{food.cookTime}}</small>
+                </div>
+              </div>              
+              <div class="price">{{food.price | currency}}</div>
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Quicksand', sans-serif;
+    
+}
+.app-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.app-main{
+    display: flex;
+    flex: 1;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    flex-direction: column;
+}
+.app-header{
+    border-bottom: 1px solid rgba(0,0,0,0.175);
+}
+.app-footer{
+    border-top: 1px solid rgba(0,0,0,0.175);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.card-body{
+    position: relative;
+    .favourite{
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 1.6rem;
+        color: red;
+        &.not{
+            color: black;
+        }
+    }
+}
+.origin{
+    small{
+        margin-right: 3px;
+    }
+}
+.price{
+    font-weight: 500;
+}
+.food-footer{
+    display: flex;
+}
+.card-link{
+    text-decoration: none;
+    color: #212529;
+}
+.cart-list-item{
+    display: flex;
+    align-items: center;
+}
+.cart-img{
+    border-radius:90px;
+    width: 50px;
+    height: 50px;
+}

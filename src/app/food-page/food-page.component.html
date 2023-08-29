@@ -1,0 +1,33 @@
+<app-not-found [visible]="!food" notFoundMessage="Product not found" resetLinkText="Go to home page"></app-not-found>
+<div *ngIf="food" class="container-fluid">
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{food.imageUrl}}" class="img-fluid rounded-start" alt="{{food.name}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{food.name}}</h5>
+              <span class="favourite {{food.favourite ? '' : 'not'}}">♥</span>
+              <star-rating [value]="food.star" [totalstars]="5" checkedcolor="red" uncheckedcolor="black" size="24px" [readonly]="true" ></star-rating>
+              <div class="food-footer">
+                <div class="origin">
+                    <small *ngFor="let origin of food.origins">{{origin}} </small>
+                </div>
+                
+              </div>  
+              <div class="tags">
+                <app-tags [foodPageTags]="food.tags"></app-tags>
+              </div>
+              <div class="cook-time ms-auto">
+                <small>Time to cook about  {{food.cookTime}} minutes</small>
+                </div>            
+              <div class="price">Price: {{food.price | currency}}</div>
+              
+              <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
